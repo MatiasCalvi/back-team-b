@@ -1,7 +1,7 @@
 let router = require('express').Router()
 
-let hotel =require('./hotel')
+let user =require('./users')
 
-router.use('/hotel',hotel)
+router.use('/users',user)
 
 module.exports = router;
