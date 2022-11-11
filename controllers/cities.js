@@ -11,6 +11,7 @@ const controller = {
         message: "La ciudad se creó satisfactoriamente",
       });
     } catch (error) {
+        console.log(error.message)
         respuesta.status(400).json({
         success: false,
         message: error.message,

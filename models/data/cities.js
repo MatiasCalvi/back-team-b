@@ -5,7 +5,7 @@ let cities=[
         "continent": "Europe",
         "photo": "https://images.pexels.com/photos/221166/pexels-photo-221166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "population":  9002488 ,
-        "userId":  "636d60bb6fe8198f1d547bf4"  
+        "userId": "636d60bb6fe8198f1d547bf4"  
 	},
 	{
 
@@ -13,7 +13,7 @@ let cities=[
         "continent": "Europe",
         "photo": "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "population":  	2240621  ,
-        "userId":  "636d60bb6fe8198f1d547bf3"
+        "userId": "636d60bb6fe8198f1d547bf3"
 	},
 	{
 
@@ -21,7 +21,7 @@ let cities=[
         "continent": "Europe",
         "photo": "https://images.pexels.com/photos/3629813/pexels-photo-3629813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "population":  25121000 ,
-        "userId":  "636d60bb6fe8198f1d547bf4" 
+        "userId": "636d60bb6fe8198f1d547bf4" 
 	},
 	{
 
@@ -57,7 +57,7 @@ let cities=[
         "continent":"America",
         "photo":"https://images.pexels.com/photos/6102263/pexels-photo-6102263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "population":1328429 ,
-        "userId":" 636d60bb6fe8198f1d547bf4" 
+        "userId":"636d60bb6fe8198f1d547bf4" 
         },
 	{
         "name":"Lima",
@@ -87,7 +87,7 @@ let cities=[
         "name":"Marrakech",
         "continent":"Africa",
         "photo": "https://images.pexels.com/photos/13759765/pexels-photo-13759765.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "population":1070838  ,
+        "population":1070838,
         "userId":"636d60bb6fe8198f1d547bf3"  
 	}
 ]
