@@ -1,9 +1,9 @@
-let router = require('express').Router()
+let router = require("express").Router();
 
-let user =require('./users')
-let cities =require('./cities')
+let users = require("./api/users");
+let cities = require("./api/cities");
 
-router.use('/users',user)
-router.use('/cities',cities)
+router.use("/api/users", users);
+router.use("/api/cities", cities);
 
 module.exports = router;
