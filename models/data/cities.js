@@ -54,7 +54,7 @@ let cities=[
 	},
         {
         "name":"Luxor",
-        "continent":"America",
+        "continent":"Africa",
         "photo":"https://images.pexels.com/photos/6102263/pexels-photo-6102263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "population":1328429 ,
         "userId":"636d60bb6fe8198f1d547bf4" 
