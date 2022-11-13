@@ -41,7 +41,24 @@ const controller = {
             message: error.message,
           });
         }
-      }
+    },
+    update: async(req,res) => {
+        let { id } = req.params
+        try {
+            let itinerary = await Itinerary.findOneAndUpdate({ _id: id }, req.body,{ new: true })
+            if (itinerary) {
+                res.status(200).json({
+                    success: true,
+                    message: "Itinerary has been modified"
+                })
+            } 
+        } catch(error) {
+            res.status(400).json({
+                success: false,
+                message: error.message
+            })
+        }
+    }
   };
   module.exports = controller;
   

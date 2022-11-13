@@ -8,5 +8,6 @@ router.use("/api/users", users);
 router.use("/api/cities", cities);
 router.use("/api/cities/:id", cities);
 router.use("/api/itineraries", itineraries);
+router.use("/api/itineraries/:id", itineraries);
 
 module.exports = router;
