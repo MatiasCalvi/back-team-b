@@ -4,4 +4,11 @@ let { create } = require("../../controllers/hotels");
 
 router.post("/", create);
 
+
+
+
+
+
+
+
 module.exports = router;
