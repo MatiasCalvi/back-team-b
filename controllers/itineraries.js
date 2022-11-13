@@ -25,6 +25,23 @@ const controller = {
         });
       }
     },
+    create: async (requerimiento, respuesta) => {
+        try {
+          let new_Itinerary= await Itinerary.create(requerimiento.body);
+    
+          respuesta.status(201).json({
+            id: new_Itinerary._id,
+            success: true,
+            message: "Your Itinerary has been created",
+          });
+        } catch (error) {
+          console.log(error.message);
+          respuesta.status(400).json({
+            success: false,
+            message: error.message,
+          });
+        }
+      }
   };
   module.exports = controller;
   
