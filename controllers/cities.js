@@ -1,5 +1,6 @@
 const { query } = require("express");
 const City = require("../models/City");
+const User = require("../models/User");
 
 const controller = {
   create: async (requerimiento, respuesta) => {
@@ -34,13 +35,13 @@ const controller = {
       };
     }
     try {
-      let allcities = await City.find(query);
+      let allcities = await City.find(query).populate("userId");
       if (allcities) {
         res.status(200).json({
           allcities,
           success: true,
           message: "Cities were successfully found",
-          });
+        });
       } else {
         res.status(404).json({
           success: false,
@@ -53,6 +54,24 @@ const controller = {
         message: error.message,
       });
     }
-  }
-}
+  },
+  readOne: async (req, res) => {
+    let { id } = req.params;
+    try {
+      let city = await City.find({ _id: id });
+      if (city) {
+        res.status(200).json({
+          city,
+          success: true,
+          message: "se obtuvo un usuario",
+        });
+      }
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  },
+};
 module.exports = controller;
