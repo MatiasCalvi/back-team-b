@@ -10,7 +10,7 @@ const controller = {
         };
       }
       try {
-        let itineraries = await Itinerary.find(query/* ,{userId:0} */)
+        let itineraries = await Itinerary.find(query ,{userId:0})
         if (itineraries) {
           res.status(200).json({
             itineraries,
