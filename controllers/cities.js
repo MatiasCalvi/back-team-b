@@ -1,6 +1,5 @@
 const { query } = require("express");
 const City = require("../models/City");
-const User = require("../models/User");
 
 const controller = {
   create: async (requerimiento, respuesta) => {
@@ -35,7 +34,7 @@ const controller = {
       };
     }
     try {
-      let allcities = await City.find(query).populate("userId");
+      let allcities = await City.find(query).populate("userId",["name","photo"]);
       if (allcities) {
         res.status(200).json({
           allcities,
@@ -73,5 +72,39 @@ const controller = {
       });
     }
   },
+  update: async(req,res) => {
+    let { id } = req.params
+    try {
+        let city = await City.findOneAndUpdate({ _id: id }, req.body,{ new: true })
+        if (city) {
+            res.status(200).json({
+                success: true,
+                message: "city has been modified"
+            })
+        } 
+    } catch(error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        })
+    }
+  },
+  destroy: async(req,res) => {
+    let { id } = req.params
+    try {
+        let city = await City.findOneAndDelete({ _id: id })
+        if (city) {
+            res.status(200).json({
+                success: true,
+                message: "city has been deleted"
+            })
+        } 
+    } catch(error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        })
+    }
+  }
 };
 module.exports = controller;
