@@ -88,6 +88,23 @@ const controller = {
             message: error.message
         })
     }
-},
+  },
+  destroy: async(req,res) => {
+    let { id } = req.params
+    try {
+        let city = await City.findOneAndDelete({ _id: id })
+        if (city) {
+            res.status(200).json({
+                success: true,
+                message: "city has been deleted"
+            })
+        } 
+    } catch(error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        })
+    }
+  }
 };
 module.exports = controller;
