@@ -6,6 +6,7 @@ let itineraries = require("./api/itineraries");
 
 
 
+let shows = require("./api/shows")
 let hotels = require("./api/hotels")
 
 router.use("/api/users", users);
@@ -22,5 +23,6 @@ router.use("/api/itineraries/:id", itineraries);
 
 router.use("/api/hotels", hotels)
 router.use("/api/hotels/:id", hotels)
+router.use("/api/shows", shows)
 
 module.exports = router;
