@@ -34,7 +34,7 @@ const controller = {
       };
     }
     try {
-      let allcities = await City.find(query).populate("userId");
+      let allcities = await City.find(query).populate("userId",["name","photo"]);
       if (allcities) {
         res.status(200).json({
           allcities,
