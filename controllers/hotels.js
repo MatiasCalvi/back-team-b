@@ -36,17 +36,17 @@ const controller = {
             name : req.query.order}
             
         try {
-          let allhotels = await Hotel.find(query).sort(order);
+          let allhotels = await Hotel.find(query).sort(order).populate("cityId",["name"]);
           if (allhotels) {
               res.status(200).json({
                 allhotels,
                 success: true,
-                message: "Cities were successfully found",
+                message: "hotels were successfully found",
             });
           } else {
             res.status(404).json({
               success: false,
-              message: "No city was found",
+              message: "No hotels was found",
             });
           }
           
