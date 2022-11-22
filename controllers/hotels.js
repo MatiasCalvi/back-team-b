@@ -21,11 +21,16 @@ const controller = {
   read: async (req, res) => {
     let query = {};
     let order = {};
-
+    
     if (req.query.name) {
       query = {
         ...query,
         name: { $regex: req.query.name, $options: "i" },
+      };
+    }if (req.query.userId) {
+      query = {
+        ...query,
+        userId: req.query.userId,
       };
     }
     if (req.query.order)
@@ -101,7 +106,7 @@ const controller = {
   destroy: async (req, res) => {
     let { id } = req.params;
     try {
-      let hotelEliminate = await Hotel.findOneAndDelete({ _id: id });
+      let hotelEliminate = await Hotel.findOneAndDelete({ userId: id });
       if (hotelEliminate) {
         res.status(200).json({
           success: true,

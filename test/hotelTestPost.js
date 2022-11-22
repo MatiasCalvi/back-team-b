@@ -37,7 +37,8 @@ describe('POST /api/hotels/', function (done) {
     "userId": "636d60bb6fe8198f1d547bf3",
 }
   it('verificar que el usuario complete el campo name con un string',(done)=>{
-      request(app)
+      
+    request(app)
       .post('/api/hotels/')
       .send(hotel)
       .expect(response=>{
@@ -51,6 +52,7 @@ describe('POST /api/hotels/', function (done) {
           done();
       })
   })
+
 
 })
 
