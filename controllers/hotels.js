@@ -62,9 +62,9 @@ const controller = {
       let hotel = await hotel.find({ _id: id });
       if (hotel) {
         res.status(200).json({
-          city,
+          hotel,
           success: true,
-          message: "se obtuvo un usuario",
+          message: "user found",
         });
       }
     } catch (error) {

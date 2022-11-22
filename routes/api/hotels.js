@@ -7,7 +7,7 @@ let { create, read, update, destroy, readOne  } = require("../../controllers/hot
 router.route("/")     
 .post(validator(schema),create)  
 router.get("/",read);
-router.get("/",readOne);
+router.get("/ /?userId=id",readOne);
 router.patch("/:id", update)
 router.delete("/:id",destroy)
 
