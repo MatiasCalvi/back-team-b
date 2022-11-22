@@ -10,6 +10,12 @@ const controller = {
          userId: req.query.userId,
       };
     }
+    if (req.query.cityId) {
+      query = {
+         ...query,
+         cityId: req.query.cityId,
+      };
+    }
     if (req.query.name) {
       query = {
         ...query,
@@ -17,13 +23,13 @@ const controller = {
       };
     }
     try {
-      let itineraries = await Itinerary.find(query).populate("userId", [
+      let itinerary = await Itinerary.find(query).populate("userId", [
         "name",
         "photo",
       ])
-      if (itineraries.length>0) {
+      if (itinerary.length>0) {
         res.status(200).json({
-          itineraries,
+          itinerary,
           success: true,
           message: "Itineraries were successfully found",
         });
@@ -40,29 +46,6 @@ const controller = {
       });
     }
   },
-    readOne: async (req, res) => {
-      let query = {};
-      if (req.query.cityId) {
-        query = {query,
-          cityId: req.query.cityId,
-        };
-      }
-      try {
-        let itineraries = await Itinerary.find(query ,{userId:0})
-        if (itineraries) {
-          res.status(200).json({
-            itineraries,
-            success: true,
-            message: "itineraries are here",
-          });
-        }
-      } catch (error) {
-        res.status(400).json({
-          success: false,
-          message: error.message,
-        });
-      }
-    },
 
     create: async (requerimiento, respuesta) => {
         try {
