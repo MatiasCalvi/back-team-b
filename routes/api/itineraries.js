@@ -1,8 +1,8 @@
 let router = require("express").Router();
 
-let { readOne,create,update,destroy } = require("../../controllers/itineraries");
+let { create,update,destroy,read } = require("../../controllers/itineraries");
 
-router.get("/", readOne);
+router.get("/", read);
 router.post("/", create);
 router.put("/:id", update);
 router.delete("/:id",destroy)
