@@ -30,8 +30,8 @@ const controller = {
     }
     if (req.query.userId) {
       query = {
-        ...query,
-        userId: req.query.userId,
+         ...query,
+         userId: req.query.userId,
       };
     }
     if (req.query.name) {
