@@ -21,11 +21,16 @@ const controller = {
   read: async (req, res) => {
     let query = {};
     let order = {};
-
+    
     if (req.query.name) {
       query = {
         ...query,
         name: { $regex: req.query.name, $options: "i" },
+      };
+    }if (req.query.userId) {
+      query = {
+        ...query,
+        userId: req.query.userId,
       };
     }
     if (req.query.order)
@@ -36,7 +41,7 @@ const controller = {
     try {
       let allhotels = await Hotel.find(query)
         .sort(order)
-        .populate("cityId", ["name"]);
+        .populate("userId", ["name","photo"]);
       if (allhotels.length > 0) {
         res.status(200).json({
           allhotels,
@@ -47,6 +52,24 @@ const controller = {
         res.status(404).json({
           success: false,
           message: "No hotels was found",
+        });
+      }
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  },
+  readOne: async (req, res) => {
+    let { id } = req.params;
+    try {
+      let hotel = await hotel.find({ _id: id });
+      if (hotel) {
+        res.status(200).json({
+          hotel,
+          success: true,
+          message: "user found",
         });
       }
     } catch (error) {
@@ -83,7 +106,7 @@ const controller = {
   destroy: async (req, res) => {
     let { id } = req.params;
     try {
-      let hotelEliminate = await Hotel.findOneAndDelete({ _id: id });
+      let hotelEliminate = await Hotel.findOneAndDelete({ userId: id });
       if (hotelEliminate) {
         res.status(200).json({
           success: true,
