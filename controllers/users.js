@@ -7,14 +7,14 @@ const {userSignedUpResponse}=require('../config/responses')
 const controller = {
 
       register: async(req,res,next)=>{
-        let {name,lastName,photo,age,email,password}=req.body
+        let {name,lastName,photo,age,email,password,role}=req.body
         let verified=false
         let logged=false
         let code=cripto.randomBytes(10).toString('hex')
         password= bcryptjs.hashSync(password,10)
         try{
             
-            await User.create({name,lastName,photo,age,email,password,verified,logged,code})
+            await User.create({name,lastName,photo,age,email,password,verified,logged,code,role})
             await accountVerificationEmail(email,code)
             return userSignedUpResponse(req, res)
         }   
