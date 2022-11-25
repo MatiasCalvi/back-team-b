@@ -126,4 +126,3 @@ users.forEach((element)=>{
     })
 })
 
-module.exports = User

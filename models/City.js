@@ -7,4 +7,5 @@ const schema = new mongoose.Schema({
   userId: { type: mongoose.Types.ObjectId, ref: "users", required: true },
 });
 const City = mongoose.model("cities", schema);
+
 module.exports = City;
