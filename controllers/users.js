@@ -3,6 +3,7 @@ const bcryptjs=require('bcryptjs')
 let cripto= require('crypto')
 let accountVerificationEmail= require('./accountVerificationEmail')
 const {userSignedUpResponse}=require('../config/responses')
+const jwt = require('jsonwebtoken')
 
 const controller = {
 
