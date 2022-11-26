@@ -90,7 +90,8 @@ const controller = {
                 response: {
                     user: {
                         name: user.name,
-                        photo: user.photo
+                        photo: user.photo,
+                        role:user.role
                     },
                 },
                 success: true,
