@@ -19,7 +19,8 @@ passport.use(
                         id: user._id,
                         name: user.name,
                         email: user.email,
-                        photo: user.photo
+                        photo: user.photo,
+                        role: user.role
                     }
                     return done(null, user)
                 } else {

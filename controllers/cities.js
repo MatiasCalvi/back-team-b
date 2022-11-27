@@ -28,6 +28,12 @@ const controller = {
         continent: req.query.continent,
       };
     }
+    if (req.query.userId) {
+      query = {
+         ...query,
+         userId: req.query.userId,
+      };
+    }
     if (req.query.name) {
       query = {
         ...query,

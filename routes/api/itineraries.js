@@ -1,9 +1,11 @@
 let router = require("express").Router();
+const validator= require('../../middlewares/validator')
+const schema=require('../../schemas/loginUser')
 
-let { readOne,create,update,destroy } = require("../../controllers/itineraries");
+let { create,update,destroy,read } = require("../../controllers/itineraries");
 
-router.get("/", readOne);
-router.post("/", create);
+router.get("/", read);
+router.post("/",validator(schema),create);
 router.put("/:id", update);
 router.delete("/:id",destroy)
 
