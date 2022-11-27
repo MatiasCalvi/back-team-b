@@ -23,8 +23,8 @@ describe('POST /api/cities/',(done)=>{
                 return done(err);
             }
             console.log
-            done();
         })
+        done();
     })
 
 })
