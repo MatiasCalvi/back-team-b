@@ -1,6 +1,7 @@
 const Hotel = require("../models/Hotel");
 
 const controller = {
+
   create: async (req, resp) => {
     try {
       let new_hotel = await Hotel.create(req.body);
@@ -61,7 +62,7 @@ const controller = {
       });
     }
   },
-  readOne: async (req, res) => {
+/*   readOne: async (req, res) => {
     let { id } = req.params;
     try {
       let hotel = await hotel.find({ _id: id });
@@ -78,7 +79,7 @@ const controller = {
         message: error.message,
       });
     }
-  },
+  }, */
   update: async (req, res) => {
     let { id } = req.params;
     try {
@@ -106,7 +107,7 @@ const controller = {
   destroy: async (req, res) => {
     let { id } = req.params;
     try {
-      let hotelEliminate = await Hotel.findOneAndDelete({ userId: id });
+      let hotelEliminate = await Hotel.findOneAndDelete({ _id: id });
       if (hotelEliminate) {
         res.status(200).json({
           success: true,
@@ -121,5 +122,6 @@ const controller = {
     }
   },
 };
+
 
 module.exports = controller;
