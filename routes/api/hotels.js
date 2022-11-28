@@ -1,6 +1,7 @@
 let router  = require('express').Router();
 let validator=require("../../middlewares/validator")
 let schema=require('../../schemas/newHotel')
+/* let schema2= require ('../../schemas/deleteHotel') */
 
 let { create, read, update, destroy,  } = require("../../controllers/hotels");
 
@@ -9,7 +10,9 @@ router.route("/")
 
 router.get("/",read);
 router.patch("/:id", update)
-router.delete("/:id",destroy)
+router.route("/:id")     
+.delete(destroy)  
+
 
 
 
