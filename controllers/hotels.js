@@ -62,7 +62,9 @@ const controller = {
       });
     }
   },
-/*   readOne: async (req, res) => {
+
+  readOne: async (req, res) => {
+
     let { id } = req.params;
     try {
       let hotel = await hotel.find({ _id: id });
@@ -79,7 +81,8 @@ const controller = {
         message: error.message,
       });
     }
-  }, */
+  },
+
   update: async (req, res) => {
     let { id } = req.params;
     try {
@@ -107,7 +110,7 @@ const controller = {
   destroy: async (req, res) => {
     let { id } = req.params;
     try {
-      let hotelEliminate = await Hotel.findOneAndDelete({ _id: id });
+      let hotelEliminate = await Hotel.findOneAndDelete({ userId: id });
       if (hotelEliminate) {
         res.status(200).json({
           success: true,
