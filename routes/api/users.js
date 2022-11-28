@@ -3,7 +3,7 @@ let schema= require('../../schemas/user')
 const validator= require('../../middlewares/validator')
 const accountExistsUser=require('../../middlewares/accountExistsSignUp')
 
-let { register,verificar,ingresarConToken, salir,ingresar } = require("../../controllers/users");
+let { register,verificar,ingresarConToken,exit,ingresar } = require("../../controllers/users");
 
 router.post("/signup",validator(schema),accountExistsUser,register);
 router.get('/verify/:code',verificar)
@@ -22,7 +22,7 @@ const passport = require('../../config/passport')
 
 router.post('/signin' , validator(schema2),accountExistsSignIn,accountHasBeenVerified,ingresar)
 router.post('/token', passport.authenticate('jwt', {session: false}), mustSignIn, ingresarConToken)
-router.put('/signout', passport.authenticate('jwt', {session: false}), salir)
+router.put('/sign-out', passport.authenticate('jwt', {session: false}), exit)
 
 
 
