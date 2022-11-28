@@ -35,6 +35,7 @@ const controller = {
                 await user.save() */
                return res.redirect('https://www.google.com/')
             } 
+
             return userNotFoundResponse(req, res)
         } catch (error) {
             next(error)

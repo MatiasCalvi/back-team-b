@@ -1,6 +1,7 @@
 const Hotel = require("../models/Hotel");
 
 const controller = {
+
   create: async (req, resp) => {
     try {
       let new_hotel = await Hotel.create(req.body);
@@ -61,7 +62,9 @@ const controller = {
       });
     }
   },
+
   readOne: async (req, res) => {
+
     let { id } = req.params;
     try {
       let hotel = await hotel.find({ _id: id });
@@ -79,6 +82,7 @@ const controller = {
       });
     }
   },
+
   update: async (req, res) => {
     let { id } = req.params;
     try {
@@ -121,5 +125,6 @@ const controller = {
     }
   },
 };
+
 
 module.exports = controller;

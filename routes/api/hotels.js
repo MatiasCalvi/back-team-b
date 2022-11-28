@@ -6,6 +6,7 @@ let { create, read, update, destroy,  } = require("../../controllers/hotels");
 
 router.route("/")     
 .post(validator(schema),create)  
+
 router.get("/",read);
 router.patch("/:id", update)
 router.delete("/:id",destroy)
