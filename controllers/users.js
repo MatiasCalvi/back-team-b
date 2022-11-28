@@ -51,11 +51,10 @@ const controller = {
     }
   },
 
+
   ingresar: async (req, res, next) => {
     const { password } = req.body;
     const { user } = req;
-
-    
     console.log(user);
     try {
       const verificarContraseña = bcryptjs.compareSync(password, user.password);
