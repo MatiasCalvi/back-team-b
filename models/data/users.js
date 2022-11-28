@@ -1,4 +1,4 @@
-let users = [
+/* let users = [
 	{
 		"name": "Sasha",
 		"lastName": "Keller",
@@ -103,9 +103,9 @@ let users = [
 		"verified": true,
 		"logged": true
 	}
-]
+] */
 
-require ('dotenv').config()
+/* require ('dotenv').config()
 require ('../../config/database')
 
 const User = require('../User')
@@ -125,4 +125,6 @@ users.forEach((element)=>{
         logged:element.logged,
     })
 })
+
+ */
 

@@ -6,6 +6,7 @@ let itineraries = require("./api/itineraries");
 
 
 
+
 let shows = require("./api/shows")
 let hotels = require("./api/hotels")
 
@@ -17,6 +18,9 @@ router.use("/api/itineraries/:id", itineraries);
 
 
 
+
+
+router.use('/api/auth',users)
 
 
 

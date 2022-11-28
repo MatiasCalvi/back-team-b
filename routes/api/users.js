@@ -8,4 +8,5 @@ let { register,verificar } = require("../../controllers/users");
 router.post("/signup",validator(schema),accountExistsUser,register);
 router.get('/verify/:code',verificar)
 
+
 module.exports = router;
