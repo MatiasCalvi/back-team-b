@@ -1,10 +1,10 @@
 const app= require('../app')
 const request= require('supertest')
 
-describe('DELETE /api/hotels/6382e74343f2ec2b3a39de67',(done)=>{
+describe('DELETE /api/hotels/638444ac3a8cde31acbfe7f0',(done)=>{
     it('hotel deleted successfully',(done)=>{
         request(app)
-        .delete('/api/hotels/6382e74343f2ec2b3a39de67')
+        .delete('/api/hotels/638444ac3a8cde31acbfe7f0')
         .expect(200)
         .end((err,res)=>{
             if(err){

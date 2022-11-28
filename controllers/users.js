@@ -128,7 +128,7 @@ const controller = {
 one: async(req,res) => { 
   let { id } = req.params
   try {
-      let user = await Usuario.find({ _id: id })
+      let user = await User.find({ _id: id })
       if (user) {
           res.status(200).json({
            user,
@@ -139,24 +139,24 @@ one: async(req,res) => {
   } catch(error) {
       res.status(400).json({
           success: false,
-          message:"What are you searching bro?!!!"
+          message:"Wno result"
       })
   }        
 },
 update: async(req,res)=>{
   let {id} = req.params
   try {
-    let uno = await Usuario.findOneAndUpdate({_id: id},req.body,{new:true})
+    let uno = await User.findOneAndUpdate({_id: id},req.body,{new:true})
 if(uno){
   res.status(200).json({
     id: uno._id,
     success: true,
-    message: "el usuario se modifico satisfactoriamente"
+    message: "user modified"
   })
 }else{
   res.status(404).json({
     success: false,
-    message: "el usuario no se encontro"
+    message: "user not found"
   })
 }
   } catch (error) {
