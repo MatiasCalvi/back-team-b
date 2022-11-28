@@ -9,6 +9,7 @@ const controller = {
       respuesta.status(201).json({
         id: new_City._id,
         success: true,
+        new_City,
         message: "La ciudad se creó satisfactoriamente",
       });
     } catch (error) {
@@ -27,6 +28,12 @@ const controller = {
         continent: req.query.continent,
       };
     }
+    if (req.query.userId) {
+      query = {
+         ...query,
+         userId: req.query.userId,
+      };
+    }
     if (req.query.name) {
       query = {
         ...query,
@@ -34,8 +41,11 @@ const controller = {
       };
     }
     try {
-      let allcities = await City.find(query).populate("userId",["name","photo"]);
-      if (allcities) {
+      let allcities = await City.find(query).populate("userId", [
+        "name",
+        "photo",
+      ]);
+      if (allcities.length>0) {
         res.status(200).json({
           allcities,
           success: true,
@@ -72,39 +82,41 @@ const controller = {
       });
     }
   },
-  update: async(req,res) => {
-    let { id } = req.params
+  update: async (req, res) => {
+    let { id } = req.params;
     try {
-        let city = await City.findOneAndUpdate({ _id: id }, req.body,{ new: true })
-        if (city) {
-            res.status(200).json({
-                success: true,
-                message: "city has been modified"
-            })
-        } 
-    } catch(error) {
-        res.status(400).json({
-            success: false,
-            message: error.message
-        })
+      let city = await City.findOneAndUpdate({ _id: id }, req.body, {
+        new: true,
+      });
+      if (city) {
+        res.status(200).json({
+          success: true,
+          message: "city has been modified",
+        });
+      }
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
     }
   },
-  destroy: async(req,res) => {
-    let { id } = req.params
+  destroy: async (req, res) => {
+    let { id } = req.params;
     try {
-        let city = await City.findOneAndDelete({ _id: id })
-        if (city) {
-            res.status(200).json({
-                success: true,
-                message: "city has been deleted"
-            })
-        } 
-    } catch(error) {
-        res.status(400).json({
-            success: false,
-            message: error.message
-        })
+      let city = await City.findOneAndDelete({ _id: id });
+      if (city) {
+        res.status(200).json({
+          success: true,
+          message: "city has been deleted",
+        });
+      }
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
     }
-  }
+  },
 };
 module.exports = controller;
