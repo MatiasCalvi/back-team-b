@@ -10,7 +10,8 @@
     "test-cityName": "mocha ./test/city-name.test.js",
     "test-hotelGet": "mocha ./test/hotelTestGet ",
     "test-hotelPost": " mocha ./test/hotelTestPost",
-    "test-cityDelete": "mocha ./test/myCityDelete.test.js"
+    "test-cityDelete": "mocha ./test/myCityDelete.test.js",
+    "test-hotelDelete": "mocha ./test/hotelTestDelete"
   },
   "dependencies": {
     "axios": "^1.1.3",
