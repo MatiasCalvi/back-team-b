@@ -62,7 +62,9 @@ const controller = {
       });
     }
   },
+
 /*   readOne: async (req, res) => {
+
     let { id } = req.params;
     try {
       let hotel = await hotel.find({ _id: id });
@@ -79,7 +81,9 @@ const controller = {
         message: error.message,
       });
     }
+
   }, */
+
   update: async (req, res) => {
     let { id } = req.params;
     try {

@@ -10,6 +10,7 @@ router.get('/verify/:code',verificar)
 
 
 
+
 const schema2 = require('../../schemas/loginUser')
 const accountExistsSignIn = require('../../middlewares/accountExistsSignIn')
 const accountHasBeenVerified = require('../../middlewares/accountHasBeenVerified')

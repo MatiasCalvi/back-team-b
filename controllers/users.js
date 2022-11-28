@@ -51,11 +51,11 @@ const controller = {
     }
   },
 
+
   access: async (req, res, next) => {
+
     const { password } = req.body;
     const { user } = req;
-
-    
     console.log(user);
     try {
       const reviewPass = bcryptjs.compareSync(password, user.password);
