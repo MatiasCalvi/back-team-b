@@ -16,6 +16,24 @@ const showController = {
       });
     }
   },
+  read: async (req, res) => {
+    let { query } = req.params;
+    try {
+      let shows = await Show.find(query);
+      if (shows) {
+        res.status(200).json({
+          shows,
+          success: true,
+          message: "se obtuvo un shows",
+        });
+      }
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  },
   update: async (req, res) => {
     let {id} = req.params
     try {
