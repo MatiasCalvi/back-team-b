@@ -2,6 +2,7 @@ const { query } = require("express");
 const City = require("../models/City");
 
 const controller = {
+
   create: async (requerimiento, respuesta) => {
     try {
       let new_City = await City.create(requerimiento.body);
@@ -118,5 +119,7 @@ const controller = {
       });
     }
   },
-};
+
+}
+
 module.exports = controller;

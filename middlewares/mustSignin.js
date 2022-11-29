@@ -1,7 +1,7 @@
 const mustSignInResponse = require("../config/responses");
 
 function mustSignIn(req, res, next) {
-  if (req.user) {
+  if(req.user) {
     return next();
   }
 
