@@ -63,27 +63,6 @@ const controller = {
     }
   },
 
-/*   readOne: async (req, res) => {
-
-    let { id } = req.params;
-    try {
-      let hotel = await hotel.find({ _id: id });
-      if (hotel) {
-        res.status(200).json({
-          hotel,
-          success: true,
-          message: "user found",
-        });
-      }
-    } catch (error) {
-      res.status(400).json({
-        success: false,
-        message: error.message,
-      });
-    }
-
-  }, */
-
   update: async (req, res) => {
     let { id } = req.params;
     try {

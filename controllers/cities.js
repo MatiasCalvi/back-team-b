@@ -23,6 +23,7 @@ const controller = {
   },
   read: async (req, res) => {
     let query = {};
+
     if (req.query.continent) {
       query = {
         ...query,
@@ -41,6 +42,7 @@ const controller = {
         name: { $regex: req.query.name, $options: "i" },
       };
     }
+
     try {
       let allcities = await City.find(query).populate("userId", [
         "name",
@@ -67,6 +69,7 @@ const controller = {
   },
   readOne: async (req, res) => {
     let { id } = req.params;
+    
     try {
       let city = await City.find({ _id: id });
       if (city) {
