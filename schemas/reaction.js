@@ -29,7 +29,7 @@ const schema = joi.object({
             "any.required": "a URL photo is required",
             "string.empty": "complete the URL photo, please",
             }),
-        userId: joi.string(),
+        userId: joi.any(),
 
 })
 
