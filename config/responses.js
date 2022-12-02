@@ -44,8 +44,24 @@ function verifyResponse(req,res) {
     return res.status(401).json({
         success: false,
         message: 'Please, verify your email account and try again'
-    })
+    });
 }
+
+function isTheUser(req, res) {
+    return res.status(401).json({
+        success: false,
+        message: "you aren't the user of activity",
+    });
+}
+
+function notFound(req, res) {
+    return res.status(404).json({
+        success: false,
+        message: "Couldn't find the activity",
+    });
+}
+
+
 
 module.exports = {
     userSignedUpResponse,
@@ -54,5 +70,7 @@ module.exports = {
     userSignedOutResponse,
     mustSignInResponse,
     invalidCredentialsResponse,
-    verifyResponse
+    verifyResponse,
+    isTheUser,
+    notFound
 }
