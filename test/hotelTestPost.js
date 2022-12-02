@@ -39,6 +39,7 @@ describe('POST /api/hotels/', function (done) {
   it('verificar que el usuario complete el campo name con un string',(done)=>{
       
     request(app)
+    
       .post('/api/hotels/')
       .send(hotel)
       .expect(response=>{
@@ -52,7 +53,6 @@ describe('POST /api/hotels/', function (done) {
           done();
       })
   })
-
 
 })
 
