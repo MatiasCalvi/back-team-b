@@ -44,7 +44,14 @@ function verifyResponse(req,res) {
     return res.status(401).json({
         success: false,
         message: 'Please, verify your email account and try again'
-    })
+    });
+}
+
+function isTheUser(req, res) {
+    return res.status(401).json({
+        success: false,
+        message: "you aren't the user of activity",
+    });
 }
 function mustBeTheOwner(req, res) {
     return res.status(401).json({
@@ -60,6 +67,15 @@ function mustBeTheOwner(req, res) {
     });
   }
 
+function notFound(req, res) {
+    return res.status(404).json({
+        success: false,
+        message: "Couldn't find the activity",
+    });
+}
+
+
+
 module.exports = {
     userSignedUpResponse,
     userExistsResponse,
@@ -69,6 +85,7 @@ module.exports = {
     invalidCredentialsResponse,
     verifyResponse,
     mustBeTheOwner,
-    activityNotFound
-    
+    activityNotFound,
+    isTheUser,
+    notFound
 }
