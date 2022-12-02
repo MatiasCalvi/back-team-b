@@ -129,4 +129,3 @@ show.forEach((element)=>{
     })
 })
 
-module.exports = show

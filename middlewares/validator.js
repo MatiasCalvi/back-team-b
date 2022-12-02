@@ -20,7 +20,7 @@ const validator = ( schema ) => [
                 // data.error.details es el array con todos los errores 
             })
         }
-        next()
+        next() 
     }
 ]
 

@@ -17,14 +17,24 @@ const showController = {
     }
   },
   read: async (req, res) => {
-    let { query } = req.params;
+    let query = {};
+    if (req.query.hotelId) {
+      query = {query,
+        hotelId: req.query.hotelId,
+      };
+    }if (req.query.userId) {
+      query = {
+        ...query,
+        userId: req.query.userId,
+      };
+    }
     try {
-      let shows = await Show.find(query);
-      if (shows) {
+      let shows = await Show.find(query ,{userId:0})
+      if (Show) {
         res.status(200).json({
           shows,
           success: true,
-          message: "se obtuvo un shows",
+          message: "shows are here",
         });
       }
     } catch (error) {
@@ -57,25 +67,27 @@ const showController = {
         })
     }
   },
-  destroy: async(req,res) => {
-    let {id} = req.params
+  destroy: async (req, res) => {
+    let { id } = req.params;
     try {
-        let showEliminate = await Show.findOneAndDelete({ _id: id })
-        if (showEliminate) {
-            res.status(200).json({
-                success: true,
-                message: "The Show has been deleted"
-            })
-        } 
-    } catch(error) {
-        res.status(400).json({
-            success: false,
-            message: error.message
-        })
+      let showEliminate = await Show.findOneAndDelete({ _id: id });
+      if (showEliminate) {
+        res.status(200).json({
+          success: true,
+          message: "The Show has been deleted",
+        });
+      }
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
     }
   }
+  
 
 
-}
+};
+
 
 module.exports = showController

@@ -1,6 +1,7 @@
 const Hotel = require("../models/Hotel");
 
 const controller = {
+
   create: async (req, resp) => {
     try {
       let new_hotel = await Hotel.create(req.body);
@@ -21,11 +22,16 @@ const controller = {
   read: async (req, res) => {
     let query = {};
     let order = {};
-
+    
     if (req.query.name) {
       query = {
         ...query,
         name: { $regex: req.query.name, $options: "i" },
+      };
+    }if (req.query.userId) {
+      query = {
+        ...query,
+        userId: req.query.userId,
       };
     }
     if (req.query.order)
@@ -47,24 +53,6 @@ const controller = {
         res.status(404).json({
           success: false,
           message: "No hotels was found",
-        });
-      }
-    } catch (error) {
-      res.status(400).json({
-        success: false,
-        message: error.message,
-      });
-    }
-  },
-  readOne: async (req, res) => {
-    let { id } = req.params;
-    try {
-      let hotel = await hotel.find({ _id: id });
-      if (hotel) {
-        res.status(200).json({
-          hotel,
-          success: true,
-          message: "user found",
         });
       }
     } catch (error) {
@@ -116,5 +104,6 @@ const controller = {
     }
   },
 };
+
 
 module.exports = controller;
