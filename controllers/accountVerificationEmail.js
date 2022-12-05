@@ -679,7 +679,6 @@ function getEmailBody({ email, host, code }) {
   
   
   
-  
                           <div style="padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;">
                             <!--[if (mso)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px;padding-left: 30px; padding-top: 30px; padding-bottom: 30px;"><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
                             <div align="center">
