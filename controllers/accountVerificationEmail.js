@@ -506,7 +506,7 @@ function getEmailBody({ email, host, code }) {
                             <div style="font-size:12px;line-height:18px;color:#555555;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align:left;">
                               <p style="margin: 0;font-size: 14px;line-height: 21px;text-align: center">
                                 <span style="color: rgb(162, 0, 0); font-size: 14px; line-height: 21px;">
-                                <a href=${host}/auth/verify/${code}">Verify your Account now!<strong></strong></a>
+                                <a href="${host}/auth/verify/${code}">Verify your Account now!<strong></strong></a>
                               </span>
                               </p>
                             </div>
