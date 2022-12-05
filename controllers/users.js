@@ -43,7 +43,7 @@ const controller = {
       );
       if (user) {
      
-        return res.redirect("https://www.google.com/");
+        return res.redirect("https://my-tinerary-team-b.vercel.app");
       }
       return userNotFoundResponse(req, res);
     } catch (error) {
