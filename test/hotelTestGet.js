@@ -8,7 +8,6 @@ const { response } = require('../app');
 describe('GET /api/hotels?name=safnoasf', function () {
     it('Must respond with 404 status code', function (done) {
        
-        
         request(app)
             .get ('/api/hotels?name=safnoasf')
             .expect(404)
@@ -17,6 +16,5 @@ describe('GET /api/hotels?name=safnoasf', function () {
                 return done()
             })
     })
-
 })
 
