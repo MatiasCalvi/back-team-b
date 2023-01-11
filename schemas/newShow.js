@@ -23,8 +23,9 @@ const schema = joi.object({
       "string.empty": "The field 'Description' is required",
       "string.base": "Description must be a string",
   }),
-  date: joi.number().min(1).required().messages({
-      "any.required": "The Date is required",
+  date: joi.string().required().messages({
+    "any.required": "Date is required",
+    "string.base": "Date has to be a text",
   }),
 });
 
