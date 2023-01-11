@@ -25,7 +25,6 @@ const schema = joi.object({
   }),
   date: joi.number().min(1).required().messages({
       "any.required": "The Date is required",
-      "number.base": "Date must be a number",
   }),
 });
 
