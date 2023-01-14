@@ -24,12 +24,6 @@ router.use("/api/reactions", reactions)
 
 
 
-
-router.use('/api/auth',users)
-
-
-
-
 router.use("/api/hotels", hotels)
 router.use("/api/hotels/:id", hotels)
 router.use("/api/shows", shows)

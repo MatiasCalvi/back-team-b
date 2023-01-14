@@ -73,7 +73,12 @@ function notFound(req, res) {
         message: "Couldn't find the activity",
     });
 }
-
+function passwordNotMatch(req, res) {
+    return res.status(400).json({
+      success: false,
+      message: "La contraseña es errónea",
+    });
+  }
 
 
 module.exports = {
@@ -87,5 +92,6 @@ module.exports = {
     mustBeTheOwner,
     activityNotFound,
     isTheUser,
-    notFound
+    notFound,
+    passwordNotMatch
 }

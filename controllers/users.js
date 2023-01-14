@@ -2,7 +2,12 @@ const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
 let cripto = require("crypto");
 let accountVerificationEmail = require("./accountVerificationEmail");
-const { userSignedUpResponse,userSignedOutResponse,invalidCredentialsResponse,userNotFoundResponse } = require("../config/responses");
+const {
+  userSignedUpResponse,
+  userSignedOutResponse,
+  invalidCredentialsResponse,
+  userNotFoundResponse,
+} = require("../config/responses");
 const jwt = require("jsonwebtoken");
 
 const controller = {
@@ -42,7 +47,6 @@ const controller = {
         { new: true }
       );
       if (user) {
-     
         return res.redirect("https://my-tinerary-team-b.vercel.app");
       }
       return userNotFoundResponse(req, res);
@@ -51,9 +55,7 @@ const controller = {
     }
   },
 
-
   access: async (req, res, next) => {
-
     const { password } = req.body;
     const { user } = req;
     console.log(user);
@@ -91,7 +93,6 @@ const controller = {
   },
 
   accesswToken: async (req, res, next) => {
-
     let { user } = req;
     try {
       return res.json({
@@ -111,62 +112,64 @@ const controller = {
     }
   },
   exit: async (req, res, next) => {
-    const { email } = req.user 
+    const { email } = req.user;
     try {
-        
-        await User.findOneAndUpdate(
-            { email }, 
-            { logged: false }, 
-            { new: true } 
-
-        )
-        return userSignedOutResponse(req,res) 
+      await User.findOneAndUpdate({ email }, { logged: false }, { new: true });
+      return userSignedOutResponse(req, res);
     } catch (error) {
-        next(error) 
+      next(error);
     }
-},
-one: async(req,res) => { 
-  let { id } = req.params
-  try {
-      let user = await User.find({ _id: id })
+  },
+  one: async (req, res) => {
+    let { id } = req.user;
+    try {
+      let user = await User.find({ _id: id });
       if (user) {
-          res.status(200).json({
-           user,
-              success: true,
-              message: "A user has been found"
-          })
-      }           
-  } catch(error) {
+        res.status(200).json({
+          user,
+          success: true,
+          message: "A user has been found",
+        });
+      }
+    } catch (error) {
       res.status(400).json({
-          success: false,
-          message:"Wno result"
-      })
-  }        
-},
-update: async(req,res)=>{
-  let {id} = req.params
-  try {
-    let uno = await User.findOneAndUpdate({_id: id},req.body,{new:true})
-if(uno){
-  res.status(200).json({
-    id: uno._id,
-    success: true,
-    message: "user modified"
-  })
-}else{
-  res.status(404).json({
-    success: false,
-    message: "user not found"
-  })
-}
-  } catch (error) {
-    res.status(400).json({
-      success:false,
-      menssage:error.message
-    })
+        success: false,
+        message: "no result",
+      });
+    }
+  },
+  update: async (req, res) => {
+    let { id } = req.params;
+    
+    if (req.body.password) {
+      let { password } = req.body;
+      password = bcryptjs.hashSync(password, 10);
+      req.body.password = password;
+    }
 
-  }
-}
+    try {
+      let uno = await User.findOneAndUpdate({ _id: id }, req.body, {
+        new: true,
+      });
+      if (uno) {
+        res.status(200).json({
+          id: uno._id,
+          success: true,
+          message: "user modified",
+        });
+      } else {
+        res.status(404).json({
+          success: false,
+          message: "user not found",
+        });
+      }
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        menssage: error.message,
+      });
+    }
+  },
 };
 
 module.exports = controller;
